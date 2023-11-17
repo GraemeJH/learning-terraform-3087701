@@ -1,5 +1,6 @@
-data "aws_ami" "app_ami" {
-  most_recent = true
+data "aws_vpc "default" {
+  default = true
+}
 
   filter {
     name   = "name"
@@ -29,7 +30,7 @@ resource "aws_security_group" "blog" {
   name = "blog"
   description = "allow http"
 
-  vpc_id = data.aws_vpc.blog.id
+  vpc_id = data.aws_vpc.default.id
 }
 
 resource "aws_security_group_rule" "blog_http_in" {
