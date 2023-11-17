@@ -1,6 +1,5 @@
-data "aws_vpc "default" {
-  default = true
-}
+data "aws_ami "app_ami" {
+  most_recent = true
 
   filter {
     name   = "name"
@@ -13,6 +12,10 @@ data "aws_vpc "default" {
   }
 
   owners = ["979382823631"] # Bitnami
+}
+
+data "aws_vpc "default" {
+  default = true
 }
 
 resource "aws_instance" "blog" {
