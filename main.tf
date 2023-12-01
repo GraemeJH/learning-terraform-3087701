@@ -25,8 +25,17 @@ resource "aws_instance" "blog" {
   vpc_security_group_ids = [aws_security_group.blog.id]
 
   tags = {
-    Name = "HelloWorld"
+    Name = "Learning Terraform"
   }
+}
+
+module "blog_sg" {
+  source  = "terraform-aws-modules-security-group/aws"
+  version = "4.13.0"
+  name    = "blog_new"
+  vpc_id  = data.aws_vpc.default.id
+  ingress
+  
 }
 
 resource "aws_security_group" "blog" {
