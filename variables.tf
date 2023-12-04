@@ -18,7 +18,7 @@ variable "ami_filter" {
 }
 
 variable "environment" {
-  description = "Development Enviornment"
+  description = "Development Environment"
 
   type = object({
     name           = string
@@ -31,7 +31,7 @@ variable "environment" {
   }
 }
 
-variable asg_min_size" {
+variable "asg_min_size" {
   description = "Min no of instances is ASG"
   default     = 1
 }
